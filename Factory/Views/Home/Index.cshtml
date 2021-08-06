@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="jumbotron">
+    <h1>Dr. Sillystringz's Factory</h1>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Welcome to Dr. Sillystringz's Factory</h2>
+        <p>
+            Dr. Sillystringz's Factory web application track machine repairs. This application
+            manage their engineers and the machine they are licensed to fix. The factory manager
+            should be able to add a list of engineers, a list of machines and specify which engineers
+            are licensed to repair (belong to) their many stock of machine.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Engineers</h2>
+        <p>@Html.ActionLink("See all items", "Index", "Items")</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Machines</h2>
+        <p>@Html.ActionLink("See all categories", "Index", "Categories")</p>
+    </div>
+</div>
