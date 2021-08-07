@@ -1,0 +1,66 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+#container {
+    min-height: 768px;
+}
+
+#title h1
+{
+    font-size:25px;
+}
+
+#formContainer
+{
+    margin-left:10px;
+    margin-top:30px;
+}
+
+.formLabel
+{
+    float:left;
+    width: 250px;
+}
+
+.formControl {
+    width:300px;
+    float:left;
+}
+
+.formControl .textInput
+{
+    width:300px;
+}
+
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+a:focus, input:focus, select:focus, button:focus, .tabHeaders > div:focus{
+    outline: 1px dotted !important;
+}
+
+
+.formControl .richText
+{
+    margin-top:10px;
+    width:500px;
+    height:440px;
+}
