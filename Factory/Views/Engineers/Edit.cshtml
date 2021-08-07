@@ -10,15 +10,27 @@
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.EngineerId)
+  <div class="form-horizontal">
+    @Html.HiddenFor(model => model.EngineerId)
 
-  @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
+    <div class="form-group">
+      @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2"})
+      <div class="col-md-10">
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control"}})
+      </div>
+      @Html.LabelFor(model => model.JoinEntities, new { @class = "control-label col-md-2" })
+      <div class="col-md-10">
+        @Html.DropDownList("MachineId")
+      </div>
+    </div>
 
-  @Html.LabelFor(model => model.JoinEntities)
-  @Html.DropDownList("MachineId")
-  
-
-  <input type="submit" value="Save" />
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+          <input type="submit" value="Save" class="btn btn-default" />
+      </div>
+    </div>
+  </div>
 }
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<div>
+  @Html.ActionLink("Back to List", "Index")
+</div>
