@@ -4,31 +4,47 @@
 
 @model Factory.Models.Engineer
 
-<h2>Engineer Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-@if(@Model.JoinEntities.Count == 0)
-{
-  <p>This Engineer has not been assigned a machiner</p>
-}
-else
-{
-  <h4>Machine operated by this Engineer:</h4>
-  <ul>
-    @foreach (var join in Model.JoinEntities)
+<div>
+  <h2>Engineer Details</h2>
+  <hr />
+  <dl class="dl-horizontal">
+    <dt>
+      @Html.DisplayFor(model => model.Name)
+    </dt>
+
+    @if(@Model.JoinEntities.Count == 0)
     {
-      <li>@join.Machine.Name</li>
-      @using (Html.BeginForm("DeleteMachine", "Engineer"))
-      {
-        @Html.Hidden("joinId", @join.MachineEngineerId)
-        <input type="submit" value="Delete" />
-      }
+      <p>This Engineer has not been assigned a machine</p>
     }
-  </ul>
-}
+    else
+    {
+      <table class="table">
 
-<p>@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId })</p>
+        @foreach (var join in Model.JoinEntities)
+        { <tr>
+            <td>
+              @join.Machine.Name
+              <hr />
+                @using (Html.BeginForm("DeleteMachine", "Engineer"))
+              {
+                @Html.Hidden("joinId", @join.MachineEngineerId)
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-md-10">
+                  <input type="submit" value="Save" class="btn btn-default" />
+                  </div>
+                </div>
+              }
+            </td>
+          </tr>
+        }
+      </table>
+    }
+  </dl>
+</div>
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId})</p>
+<div>
+@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId })
+@Html.ActionLink("Back to list", "Index")
+@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })
+@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId})
+</div>

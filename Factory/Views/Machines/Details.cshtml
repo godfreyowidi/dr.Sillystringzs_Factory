@@ -5,24 +5,33 @@
 @model Factory.Models.Machine
 
 <h2>Machines Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<div>
+  <hr />
+  <dl class="dl-horizontal">
+    <dd>
+      @Html.DisplayFor(model => model.Name)
+    </dd>
 
-@if(@Model.JoinEntities.Count == 0)
-{
-  <p>This machine does not contain any engineers</p>
-}
-else
-{
-  <h4>Engineers the machines contains:</h4>
-  <ul>
-    @foreach (var join in Model.JoinEntities)
+    @if(@Model.JoinEntities.Count == 0)
     {
-      <li>@join.Engineer.Name</li>
+      <dt>
+        This machine does not contain any engineers
+      </dt>
     }
-  </ul>
-}
-<p>@Html.ActionLink("Back to Machines", "Index")</p>
-<p>@Html.ActionLink("Edit Machines", "Edit", new { id = Model.MachineId})</p>
-<p>@Html.ActionLink("Delete machine", "Delete", new { id = Model.MachineId })</p>
+    else
+    {
+        @foreach (var join in Model.JoinEntities)
+        {
+          <dd>
+              @join.Engineer.Name
+          </dd>
+        }
+    }
+  </dl>
+</div>
+<p>
+  @Html.ActionLink("Back to Machines", "Index") |
+  @Html.ActionLink("Edit Machines", "Edit", new { id = Model.MachineId}) |
+  @Html.ActionLink("Delete machine", "Delete", new { id = Model.MachineId })
+</p>
 

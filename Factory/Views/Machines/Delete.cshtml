@@ -5,10 +5,21 @@
 @model Factory.Models.Machine
 
 <h2>Are you sure you want to delete this? </h2>
+<hr />
+<dd>
+  @Html.DisplayFor(model => model.Name)
+</dd>
 
-@Html.DisplayFor(model => model.Name): @Html.DisplayFor(model => model.Name)
 @using (Html.BeginForm())
 {
-  <input type="submit" value="Delete" />
+  <tr>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Delete" class="btn btn-default" />
+      </div>
+    </div>
+  </tr>
 }
-@Html.ActionLink("Back to list", "Index")
+<p>
+  @Html.ActionLink("Back to list", "Index")
+</p>

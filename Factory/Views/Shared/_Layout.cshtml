@@ -6,7 +6,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/styles.css">
 </head>
-    <body>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Home", "Index", "Home") |
+                @Html.ActionLink("About", "About", "Home") |
+                @Html.ActionLink("Engineers", "Index", "Engineer")
+            </div>
+        </div>
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -14,10 +23,5 @@
             <p>&copy; @DateTime.Now.Year - Dr. Sillystringz's Factory</p>
         </footer>
     </div>
-
-    @* @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap") *@
-    @RenderSection("scripts", required: false)
-    @RenderBody()
 </body>
 </html>

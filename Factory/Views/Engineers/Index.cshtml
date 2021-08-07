@@ -3,9 +3,9 @@
 }
 
 @using Factory.Models;
-@model List<Factory.Models.Engineer>;
+@model List<Factory.Models.Engineer>
 
-<h1>Engineer</h1>
+<h4>Engineer</h4>
 
 @using (Html.BeginForm("Index", "Engineer", FormMethod.Get))
 {
@@ -19,8 +19,9 @@
         <th>
             @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
+        
         <th>
-            Name
+            @Html.ActionLink("Machine", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
     </tr>
 
@@ -37,6 +38,7 @@
         </td>
     </tr>
   }
+
   @Html.ActionLink("Add an Engineer", "Create")
 </table>
 
