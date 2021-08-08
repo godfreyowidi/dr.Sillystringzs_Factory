@@ -4,7 +4,7 @@
 
 @model Factory.Models.Machine
 
-<h2>Machines Details</h2>
+<h3>Machines Details</h3>
 <div>
   <hr />
   <dl class="dl-horizontal">
@@ -22,9 +22,13 @@
     {
         @foreach (var join in Model.JoinEntities)
         {
-          <dd>
-              @join.Engineer.Name
-          </dd>
+          <p>@join.Engineer.Name</p>
+          @using (Html.BeginForm("DeleteEngineer", "Engineers"))
+          {
+            @Html.Hidden("joinId", @join.MachineEngineerId)
+            <input type="submit" value="Delete" class="btn btn-danger" />
+          }
+          
         }
     }
   </dl>

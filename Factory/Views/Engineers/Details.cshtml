@@ -4,28 +4,32 @@
 
 @model Factory.Models.Engineer
 
-<div>
-  <h2>Engineer Details</h2>
-  <hr />
-  <dl class="dl-horizontal">
-    <dt>
-      <h3>@Html.DisplayFor(model => model.Name)</h3>
-    </dt>
-  </dl>
 
-    @if(@Model.JoinEntities.Count == 0)
+<h3>Engineer Details</h3>
+<hr />
+<dl class="dl-horizontal">
+  <dt>
+    <h3>@Html.DisplayFor(model => model.Name)</h3>
+  </dt>
+</dl>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Engineer has not been assigned a machine</p>
+}
+else
+{
+    @foreach (var join in Model.JoinEntities)
     {
-      <p>This Engineer has not been assigned a machine</p>
+      <p>@join.Machine.Name</p>
+      @using (Html.BeginForm("DeleteMachine", "Machines"))
+      {
+        @Html.Hidden("joinId", @join.MachineEngineerId)
+        <input type="submit" value="Delete" class="btn btn-danger" />
+      }
     }
-    else
-    {
-        @foreach (var join in Model.JoinEntities)
-        {
-          @join.Machine.Name
-        }
-    }
- 
-</div>
+}
+
 
 <div>
 @Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId }) |
