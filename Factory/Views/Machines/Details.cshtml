@@ -8,9 +8,9 @@
 <div>
   <hr />
   <dl class="dl-horizontal">
-    <dd>
-      @Html.DisplayFor(model => model.Name)
-    </dd>
+    <dt>
+      <h3>@Html.DisplayFor(model => model.Name)</h3>
+    </dt>
 
     @if(@Model.JoinEntities.Count == 0)
     {
@@ -31,6 +31,7 @@
 </div>
 <p>
   @Html.ActionLink("Back to Machines", "Index") |
+  @Html.ActionLink("Add Engineer", "AddEngineer", new { id = Model.MachineId }) |
   @Html.ActionLink("Edit Machines", "Edit", new { id = Model.MachineId}) |
   @Html.ActionLink("Delete machine", "Delete", new { id = Model.MachineId })
 </p>
