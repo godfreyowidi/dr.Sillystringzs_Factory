@@ -23,7 +23,7 @@
         @foreach (var join in Model.JoinEntities)
         {
           <p>@join.Engineer.Name</p>
-          @using (Html.BeginForm("DeleteEngineer", "Engineers"))
+          @using (Html.BeginForm("DeleteEngineer", "Machines"))
           {
             @Html.Hidden("joinId", @join.MachineEngineerId)
             <input type="submit" value="Delete" class="btn btn-danger" />
